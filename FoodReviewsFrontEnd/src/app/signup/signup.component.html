@@ -1,0 +1,75 @@
+
+<div class="login-box">
+
+    <img src="../../assets/images/avatar.png" class="avatar"> 
+        <h1>SignUp Here</h1>
+            <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+                
+            <p>UserName</p>     
+            <input formControlName="UserName" type="text" placeholder="Enter UserName" >
+            <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched" style="color: red">Please enter UserName !!!</span>
+            
+            
+            <p>Email</p>
+            <input formControlName="Email" type="text" placeholder="Enter Email">
+            <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched" style="color: red">Enter proper Email !!!</span>
+            
+            <p>Password</p>
+            <input formControlName="Password" type="Password" placeholder="Enter Password">
+            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched" style="color: red">enter pass</span>
+         
+            
+                <p class="utype" >User Type</p>
+                <div class="utyperbtn">
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="radio1">
+                      <input formControlName="UserType" type="radio" class="form-check-input" id="radio1" value="NormalUser" >Normal User
+                    </label>
+                  </div>
+                  <div class="form-check-inline">
+                    <label class="form-check-label" for="radio2">
+                      <input formControlName="UserType" type="radio" class="form-check-input" id="radio2" value="Restaurant">Restaurant
+                    </label>
+                  </div>
+                </div>
+                <span *ngIf="!regiForm.get('UserType').valid && regiForm.get('UserType').touched" style="color: red">enter user type</span>
+                
+                <p class="utype">Upload Your Profile</p>
+            <div class="ufile">
+                <input type="file" class="form-control-file" formControlName="Profile"  #fileInput >
+                
+            </div>
+            <input [disabled]="!regiForm.valid " type="submit" value="submit" data-toggle="modal" data-target="#myModal"/>
+    
+<!--Action Model-->
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+            </form>
+        
+        
+        </div>
+
